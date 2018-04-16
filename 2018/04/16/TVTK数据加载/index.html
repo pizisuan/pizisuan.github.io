@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="AR,游戏,电影," />
+  <meta name="keywords" content="科学计算可视化,Python," />
 
 
 
@@ -86,18 +86,22 @@
 
 
 
-<meta name="description" content="这几天一直忙着对搭建的博客网站进行样式调整（还没调整完…），也就没写什么东西。其实说实话：我是真的懒得写，好麻烦啊。。。但是瞅着这搞好的网站，不写又TM太浪费了，算了，写吧写吧。。以前没有写东西的习惯，这一下子要我写也是不知道写什么好。想到晚上刚看了一部名为《头号玩家》的电影，就说说这个吧。">
-<meta name="keywords" content="AR,游戏,电影">
+<meta name="description" content="大多数可视化数据并非是在TVTK中构建的，很多都是通过接口读取外部数据文件，这里给出两个实例来讲解TVTK数据的加载。如图所示：TVTK提供了OBJ、PLY、STL的文件读取类，分别是：vtkOBJReader、vtkPLYReader以及vtkSTLReader。">
+<meta name="keywords" content="科学计算可视化,Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="头号玩家">
-<meta property="og:url" content="http://yoursite.com/2018/04/02/头号玩家/index.html">
+<meta property="og:title" content="TVTK数据加载">
+<meta property="og:url" content="http://yoursite.com/2018/04/16/TVTK数据加载/index.html">
 <meta property="og:site_name" content="Pizisuan">
-<meta property="og:description" content="这几天一直忙着对搭建的博客网站进行样式调整（还没调整完…），也就没写什么东西。其实说实话：我是真的懒得写，好麻烦啊。。。但是瞅着这搞好的网站，不写又TM太浪费了，算了，写吧写吧。。以前没有写东西的习惯，这一下子要我写也是不知道写什么好。想到晚上刚看了一部名为《头号玩家》的电影，就说说这个吧。">
+<meta property="og:description" content="大多数可视化数据并非是在TVTK中构建的，很多都是通过接口读取外部数据文件，这里给出两个实例来讲解TVTK数据的加载。如图所示：TVTK提供了OBJ、PLY、STL的文件读取类，分别是：vtkOBJReader、vtkPLYReader以及vtkSTLReader。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-04T14:02:03.042Z">
+<meta property="og:image" content="http://yoursite.com/img/TVTK模型读取.jpg">
+<meta property="og:image" content="http://yoursite.com/img/stl_reader.jpg">
+<meta property="og:image" content="http://yoursite.com/img/MultiBlock数据读取.jpg">
+<meta property="og:updated_time" content="2018-04-16T14:06:50.079Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="头号玩家">
-<meta name="twitter:description" content="这几天一直忙着对搭建的博客网站进行样式调整（还没调整完…），也就没写什么东西。其实说实话：我是真的懒得写，好麻烦啊。。。但是瞅着这搞好的网站，不写又TM太浪费了，算了，写吧写吧。。以前没有写东西的习惯，这一下子要我写也是不知道写什么好。想到晚上刚看了一部名为《头号玩家》的电影，就说说这个吧。">
+<meta name="twitter:title" content="TVTK数据加载">
+<meta name="twitter:description" content="大多数可视化数据并非是在TVTK中构建的，很多都是通过接口读取外部数据文件，这里给出两个实例来讲解TVTK数据的加载。如图所示：TVTK提供了OBJ、PLY、STL的文件读取类，分别是：vtkOBJReader、vtkPLYReader以及vtkSTLReader。">
+<meta name="twitter:image" content="http://yoursite.com/img/TVTK模型读取.jpg">
 
 
 
@@ -127,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/02/头号玩家/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/16/TVTK数据加载/"/>
 
 
 
 
 
-  <title>头号玩家 | Pizisuan</title>
+  <title>TVTK数据加载 | Pizisuan</title>
   
 
 
@@ -262,7 +266,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/头号玩家/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/16/TVTK数据加载/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pizisuan">
@@ -279,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">头号玩家</h1>
+          <h1 class="post-title" itemprop="name headline">TVTK数据加载</h1>
         
 
         <div class="post-meta">
@@ -291,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-02T22:59:40+08:00">
-                2018-04-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-16T21:52:36+08:00">
+                2018-04-16
               </time>
             
 
@@ -307,8 +311,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-04-04T22:02:03+08:00">
-                2018-04-04
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-16T22:06:50+08:00">
+                2018-04-16
               </time>
             
           </span>
@@ -326,8 +330,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/生活/" itemprop="url" rel="index">
-                    <span itemprop="name">生活</span>
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
                   </a>
                 </span>
 
@@ -357,7 +361,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  933字
+                  564字
                 </span>
               
 
@@ -373,7 +377,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3分钟
+                  2分钟
                 </span>
               
             </div>
@@ -394,20 +398,21 @@
       
 
       
-        <p>这几天一直忙着对搭建的博客网站进行样式调整（还没调整完…），也就没写什么东西。其实说实话：我是真的懒得写，好麻烦啊。。。但是瞅着这搞好的网站，不写又TM太浪费了，算了，写吧写吧。。以前没有写东西的习惯，这一下子要我写也是不知道写什么好。想到晚上刚看了一部名为《头号玩家》的电影，就说说这个吧。<br><a id="more"></a></p>
-<h3 id="感受"><a href="#感受" class="headerlink" title="感受"></a>感受</h3><p>第一次看到以AR游戏作为整个故事的电影（可能以前就有，但本人并非电影迷），老实说心情有点激动。激动并不是因为这个故事让我感到新颖，而是头一次看到这种故事以电影的形式展现出来。其实在电影播放几分钟的时候我就已大致猜到整个故事的发展，所以整个电影看下来，就故事内容而言我个人感觉不是很新颖（存在大量以AR游戏作为故事内容的动漫：比如我最先想到的是《刀剑神域》）。</p>
-<p>但不得不说电影里的彩蛋相当多，各种经典动漫、电影的人物、情节充斥期间，至少我个人觉得不会无聊：比如游戏制作人死前爆出在游戏里有彩蛋的这种做法。我当时立马想到《海贼王》中罗杰在被处刑时的桥段，几句话让全世界进入大海贼时代，而电影中则是让全世界进入了游戏时代；超人、金刚、蝙蝠侠等等这些经典角色在电影里比比皆是。这点可以说是相当nice。</p>
-<p>另外，关于男主在游戏里找到真爱这一点，真的是满足了绝大多数宅男的胃口。。。我不知道这种情况在现实生活中多不多，但我肯定一定有（因为本人玩的一些游戏里的大神有这种情况）。</p>
-<p>很多人对游戏嗤之以鼻，觉得游戏那纯属浪费时间，有玩游戏的时间还不如去做一些更有意义的事情。。。我个人保留观点：一款游戏的诞生，从人物的设计、故事情节的叙述、玩法等等，这些都包含了游戏制作者的思想。就如同诗人用诗去抒发自己的情感、去表达自己的看法、去展现他的世界一样，游戏设计者则用游戏去表达自己的情感、去表达自己的看法、去展现他的世界。我们读诗人的诗，可以体会诗人的格局；同样，作为玩家，我们也可以体会游戏设计人的格局。个人觉得只是不同人采用的表达方式不同而已。虽然一切都只是一场游戏一场梦，但游戏设计者跟玩家却因为一场游戏相结识。通关的人一路上殊不容易，最后取胜关键在于了解设计者的初衷和目的。于是玩到最后，设计者和玩家其实彼此成了知己，这种心灵上的默契和共鸣有着无可替代的价值。在电影结尾时，游戏设计人哈利迪对男主韦德说：</p>
-<blockquote>
-<p>多谢你玩我的游戏</p>
-</blockquote>
-<p>说实话被这句话给戳到了，也许是因为我从未目睹过电玩设计者如此真诚地当面致谢玩家的场面吧。</p>
-<p>所以：游戏不妨一玩啊…（虽说现在好的游戏不多）</p>
-<h3 id="吐槽"><a href="#吐槽" class="headerlink" title="吐槽"></a>吐槽</h3><ul>
-<li>3D电影，6只眼睛看真尼玛累。。。</li>
-<li>电影院人多，好热！</li>
-</ul>
+        <p>大多数可视化数据并非是在TVTK中构建的，很多都是通过接口读取外部数据文件，这里给出两个实例来讲解TVTK数据的加载。如图所示：TVTK提供了OBJ、PLY、STL的文件读取类，分别是：vtkOBJReader、vtkPLYReader以及vtkSTLReader。<br><a id="more"></a><br><img src="\img\TVTK模型读取.jpg" alt=""></p>
+<h3 id="TVTK读取一个STL文件"><a href="#TVTK读取一个STL文件" class="headerlink" title="TVTK读取一个STL文件"></a>TVTK读取一个STL文件</h3><p>在这个实例中，使用vtkSTLReader来读取外部文件。STL文件是在计算机图形应用系统中，用于表示三角形网格的一种文件格式，这种格式非常简单，应用相当广泛。STL文件的调用形式如下：</p>
+<pre><code>s = tvtk.STLReader(file_name = &quot;stl文件名&quot;)
+</code></pre><p>整个实例程序如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tvtk.api <span class="keyword">import</span> tvtk</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ivtk_scene</span><span class="params">(actors)</span>:</span></span><br><span class="line">    <span class="keyword">from</span> tvtk.tools <span class="keyword">import</span> ivtk</span><br><span class="line">    <span class="comment">#创建一个带Curst(Python Shell)的窗口</span></span><br><span class="line">    win = ivtk.IVTKWithCrustAndBrowser()</span><br><span class="line">    win.open()</span><br><span class="line">    win.scene.add_actor(actors)</span><br><span class="line">    <span class="comment">#修正错误</span></span><br><span class="line">    dialog = win.control.centralWidget().widget(<span class="number">0</span>).widget(<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">from</span> pyface.qt <span class="keyword">import</span> QtCore</span><br><span class="line">    dialog.setWindowFlags(QtCore.Qt.WindowFlags(<span class="number">0x00000000</span>))</span><br><span class="line">    dialog.show()</span><br><span class="line">    <span class="keyword">return</span> win</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">event_loop</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">from</span> pyface.api <span class="keyword">import</span> GUI</span><br><span class="line">    gui = GUI()</span><br><span class="line">    gui.start_event_loop()</span><br><span class="line"></span><br><span class="line">s = tvtk.STLReader(file_name = <span class="string">"Mario.stl"</span>)</span><br><span class="line">m = tvtk.PolyDataMapper(input_connection = s.output_port)</span><br><span class="line">a = tvtk.Actor(mapper = m)</span><br><span class="line"></span><br><span class="line">win = ivtk_scene(a)</span><br><span class="line">win.scene.isometric_view()</span><br><span class="line">event_loop()</span><br></pre></td></tr></table></figure>
+<p>结果如图：</p>
+<p><img src="\img\stl_reader.jpg" alt=""></p>
+<p>哈哈，不用说，大家都是到这是超级玛丽中的马里奥。。。小时候最喜欢玩的一款游戏了！！！</p>
+<h3 id="TVTK-读取一个Plot3D的文件"><a href="#TVTK-读取一个Plot3D的文件" class="headerlink" title="TVTK 读取一个Plot3D的文件"></a>TVTK 读取一个Plot3D的文件</h3><p>Plot3D读取的数据是Multiblock类型的数据，从图中可以得知：Plot3D的读取类也是从vtkObject、vtkAlgorithm继承而来的。Plot3D格式源于NASA，其广泛用于规则格网的CFD数据文件。主要分为：网格文件（XYZ文件）、空气动力学结果文件（Q文件）、通用结果文件。Multiblock的Plot3D调用格式：</p>
+<pre><code>Plot3d = tvtk.MultiBlockPlot3DReader(参数)
+参数依次为：XYZ文件名、Q文件名、标量数据的数量、矢量数据的数量
+</code></pre><p><img src="\img\MultiBlock数据读取.jpg" alt=""></p>
+<p>整个实例程序如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tvtk.api <span class="keyword">import</span> tvtk</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_data</span><span class="params">()</span>:</span></span><br><span class="line">	plot3d = tvtk.MultiBlockPLOT3DReader(</span><br><span class="line">		xyz_file_name = <span class="string">"combxyz.bin"</span>,<span class="comment">#网格文件</span></span><br><span class="line">		q_file_name = <span class="string">"combq.bin"</span>,<span class="comment">#空气动力学结果文件</span></span><br><span class="line">		scalar_function_number = <span class="number">100</span>,<span class="comment">#设置标量数据数量</span></span><br><span class="line">		vector_function_number = <span class="number">200</span><span class="comment">#设置矢量数据数量</span></span><br><span class="line">		)</span><br><span class="line">	plot3d.update()</span><br><span class="line">	<span class="keyword">return</span> plot3d</span><br><span class="line"></span><br><span class="line">plot3d = read_data()</span><br><span class="line">grid = plot3d.output.get_block(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本篇博客主要介绍了如何利用TVTK库的数据加载。。。江湖再见！！！</p>
 
       
     </div>
@@ -425,11 +430,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/AR/" rel="tag"><i class="fa fa-tag"></i> AR</a>
+            <a href="/tags/科学计算可视化/" rel="tag"><i class="fa fa-tag"></i> 科学计算可视化</a>
           
-            <a href="/tags/游戏/" rel="tag"><i class="fa fa-tag"></i> 游戏</a>
-          
-            <a href="/tags/电影/" rel="tag"><i class="fa fa-tag"></i> 电影</a>
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
           
         </div>
       
@@ -442,8 +445,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/27/hello-world/" rel="next" title="My First Blog">
-                <i class="fa fa-chevron-left"></i> My First Blog
+              <a href="/2018/04/14/TVTK中的数据集/" rel="next" title="TVTK中的数据集">
+                <i class="fa fa-chevron-left"></i> TVTK中的数据集
               </a>
             
           </div>
@@ -451,10 +454,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/06/情诗一首/" rel="prev" title="情诗一首">
-                情诗一首 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -626,7 +625,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#感受"><span class="nav-number">1.</span> <span class="nav-text">感受</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#吐槽"><span class="nav-number">2.</span> <span class="nav-text">吐槽</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#TVTK读取一个STL文件"><span class="nav-number">1.</span> <span class="nav-text">TVTK读取一个STL文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TVTK-读取一个Plot3D的文件"><span class="nav-number">2.</span> <span class="nav-text">TVTK 读取一个Plot3D的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
