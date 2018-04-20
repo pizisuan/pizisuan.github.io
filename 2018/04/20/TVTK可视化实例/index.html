@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="科学计算可视化,Python," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="今天是我25周岁生日，好多年没在家里过生日了。祝自己生日快乐吧（其实并没有什么感觉。。。）这两天都没怎么看技术，得赶紧补上！！！ 本篇博客展示几个TVTK可视化实例：标量可视化、矢量可视化、轮廓线可视化。">
+<meta name="keywords" content="科学计算可视化,Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TVTK可视化实例">
+<meta property="og:url" content="http://yoursite.com/2018/04/20/TVTK可视化实例/index.html">
+<meta property="og:site_name" content="Pizisuan">
+<meta property="og:description" content="今天是我25周岁生日，好多年没在家里过生日了。祝自己生日快乐吧（其实并没有什么感觉。。。）这两天都没怎么看技术，得赶紧补上！！！ 本篇博客展示几个TVTK可视化实例：标量可视化、矢量可视化、轮廓线可视化。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/img/cake.jpg">
+<meta property="og:updated_time" content="2018-04-20T02:51:30.690Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TVTK可视化实例">
+<meta name="twitter:description" content="今天是我25周岁生日，好多年没在家里过生日了。祝自己生日快乐吧（其实并没有什么感觉。。。）这两天都没怎么看技术，得赶紧补上！！！ 本篇博客展示几个TVTK可视化实例：标量可视化、矢量可视化、轮廓线可视化。">
+<meta name="twitter:image" content="http://yoursite.com/img/cake.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/20/TVTK可视化实例/"/>
+
+
+
+
+
+  <title>TVTK可视化实例 | Pizisuan</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/pizisuan"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Pizisuan</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/20/TVTK可视化实例/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Pizisuan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pizisuan">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">TVTK可视化实例</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-20T10:21:51+08:00">
+                2018-04-20
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-20T10:51:30+08:00">
+                2018-04-20
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,411字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>今天是我25周岁生日，好多年没在家里过生日了。祝自己生日快乐吧（其实并没有什么感觉。。。）这两天都没怎么看技术，得赶紧补上！！！</p>
+<p><img src="\img\cake.jpg" alt=""><br>本篇博客展示几个TVTK可视化实例：标量可视化、矢量可视化、轮廓线可视化。<br><a id="more"></a><br>在此之前，介绍两个概念：<strong>标量</strong>、<strong>矢量</strong>。</p>
+<ul>
+<li>标量又称为“无向量”，只有数值大小，没有方向。标量的运算遵循代数运算法则。比如：质量、密度、温度、能量、体积等。</li>
+<li>矢量又称为“向量”，是由数值大小和方向共同确定的物理量。矢量计算时遵循几何运算法则。比如：速度、加速度、力、磁场强度、电场强度等。</li>
+</ul>
+<p>为了更好地开展实例的讲解，这里先回顾一下上一篇博客的Plot3D数据的读取。</p>
+<p>在Plot3D数据读取的时候，先通过<code>MultiBlockPLOT3DReader</code>函数读入相关的外部数据文件，然后通过<code>Update</code>方法让Plot3D计算其输出数据，再通过<code>output.get_block</code>方法获取读入的数据对象</p>
+<h3 id="实例1：标量数据可视化"><a href="#实例1：标量数据可视化" class="headerlink" title="实例1：标量数据可视化"></a>实例1：标量数据可视化</h3><p>这里使用<strong>等值面</strong>来对标量场进行可视化。<strong>等值面</strong> 是标量场中<strong>标量值相等</strong>的曲面，它与地图中的等高线类似。等值面的抽取技术与绘制是三维空间数据场（或体数据）可视化的常用手段。在TVTK库中，可以通过函数<code>ContourFilter</code>获得等值面,因此也称这个函数为<strong>等值面的过滤器</strong>。它包含两个方法：</p>
+<ol>
+<li>generate_values：设定n条等值线，一般用于重新绘制等值线。</li>
+<li>set_value：设置一条等值线的值，一般用于覆盖某条等值线或者新增加一条等值线。</li>
+</ol>
+<p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tvtk.api <span class="keyword">import</span> tvtk</span><br><span class="line"><span class="keyword">from</span> tvtkfunc <span class="keyword">import</span> ivtk_scene</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_data</span><span class="params">()</span>:</span></span><br><span class="line">	plot3d = tvtk.MultiBlockPLOT3DReader(</span><br><span class="line">		xyz_file_name = <span class="string">"combxyz.bin"</span>,</span><br><span class="line">		q_file_name = <span class="string">"combq.bin"</span>,</span><br><span class="line">		scalar_function_number = <span class="number">100</span>,</span><br><span class="line">		vector_function_number = <span class="number">200</span></span><br><span class="line">		)<span class="comment">#读入plot3D数据</span></span><br><span class="line">	plot3d.update()<span class="comment">#让plot3D计算其输出数据</span></span><br><span class="line">	<span class="keyword">return</span> plot3d</span><br><span class="line"></span><br><span class="line">plot3d = read_data()</span><br><span class="line">grid = plot3d.output.get_block(<span class="number">0</span>)<span class="comment">#获取读入数据对象</span></span><br><span class="line"></span><br><span class="line">con = tvtk.ContourFilter()<span class="comment">#创建等值线对象</span></span><br><span class="line">con.set_input_data(grid)</span><br><span class="line">con.generate_values(<span class="number">10</span>,grid.point_data.scalar.range)<span class="comment">#指定轮廓数和数据范围</span></span><br><span class="line"><span class="comment">#设定映射器的变量范围属性</span></span><br><span class="line">m = tvtk.PolyDataMapper(scalar_range = grid.point_data.scalar.range,</span><br><span class="line">	input_connection = con.output_port)</span><br><span class="line">a = tvtk.Actor(mapper = m)</span><br><span class="line">a.property.opacity = <span class="number">0.5</span><span class="comment">#设定透明度为0.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#窗口绘制</span></span><br><span class="line">win = ivtk_scene(a)</span><br><span class="line">win.scene.isometric_view()</span><br><span class="line">event_loop()</span><br></pre></td></tr></table></figure></p>
+<h3 id="实例2：矢量数据可视化"><a href="#实例2：矢量数据可视化" class="headerlink" title="实例2：矢量数据可视化"></a>实例2：矢量数据可视化</h3><p>矢量数据既有数值又有方向，因此用箭头表示矢量数据场的数据较为合适。箭头的大小可以表示标量信息、箭头的方向可以表示矢量数据的方向。为了在矢量数据的网格处放置箭头符号，可以使用TVTK库中的<code>Glyph</code>函数。它提供了在TVTK中的<strong>符号化技术</strong>，使用它可以产生缩放、着色和具有方向的符号。</p>
+<p>在一般情况下，由于矢量数据过于密集，为了使得绘制速度更快，让箭头的密度适中，可以采用<strong>降维</strong>的方法来降低数据的密度。在TVTK库中，可以采用<code>MaskPoints</code>函数来对数据进行<strong>降采样</strong>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tvtk.api <span class="keyword">import</span> tvtk</span><br><span class="line"><span class="keyword">from</span> tvtkfunc <span class="keyword">import</span> ivtk_scene,event_loop</span><br><span class="line"></span><br><span class="line"><span class="comment">#读入Plot3D数据</span></span><br><span class="line">plot3d = tvtk.MultiBlockPLOT3DReader(</span><br><span class="line">	xyz_file_name = <span class="string">"combxyz.bin"</span>,</span><br><span class="line">	q_file_name = <span class="string">"combq.bin"</span>,</span><br><span class="line">	scalar_function_number = <span class="number">100</span>,</span><br><span class="line">	vector_function_number = <span class="number">200</span></span><br><span class="line">	)</span><br><span class="line">plot3d.update()</span><br><span class="line">grid = plot3d.output.get_block(<span class="number">0</span>)<span class="comment">#获取读入数据对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#对数据集中的数据进行随机选取，每50个点选择一个点</span></span><br><span class="line">mask = tvtk.MaskPoints(random_mode = <span class="keyword">True</span>, on_ratio = <span class="number">50</span>)</span><br><span class="line">mask.set_input_data(grid)</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建表示箭头的PolyData数据集</span></span><br><span class="line">glyph_source = tvtk.ArrowSource()</span><br><span class="line"></span><br><span class="line"><span class="comment">#在Mask采样后的PolyData数据集在每个点放置一个箭头</span></span><br><span class="line"><span class="comment">#箭头的方向、长度和颜色由每个点对应的矢量和标量数据决定</span></span><br><span class="line">glyph = tvtk.Glyph3D(input_connection = mask.output_port,scale_factor = <span class="number">4</span>)</span><br><span class="line">glyph.set_source_connection(glyph_source.output_port)</span><br><span class="line">m = tvtk.PolyDataMapper(scalar_range = grid.point_data.scalar.range,</span><br><span class="line">	input_connection = glyph.output_port)</span><br><span class="line">a = tvtk.Actor(mapper = m)</span><br><span class="line"></span><br><span class="line"><span class="comment">#窗口绘制</span></span><br><span class="line">win = ivtk_scene(a)</span><br><span class="line">win.scene.isometric_view()</span><br><span class="line">event_loop()</span><br></pre></td></tr></table></figure>
+<h3 id="实例3：空间轮廓线可视化"><a href="#实例3：空间轮廓线可视化" class="headerlink" title="实例3：空间轮廓线可视化"></a>实例3：空间轮廓线可视化</h3><p>在TVTK中，使用<code>StructuredGridOutlineFilter</code>函数来计算PolyData数据的<strong>外边框</strong>。具体实例代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tvtk.api <span class="keyword">import</span> tvtk</span><br><span class="line"><span class="keyword">from</span> tvtk.common <span class="keyword">import</span> configure_input</span><br><span class="line"><span class="keyword">from</span> tvtkfunc <span class="keyword">import</span> ivtk_scene,event_loop</span><br><span class="line"></span><br><span class="line"><span class="comment">#读入Plot3D数据</span></span><br><span class="line">plot3d = tvtk.MultiBlockPLOT3DReader(</span><br><span class="line">	xyz_file_name = <span class="string">"combxyz.bin"</span>,</span><br><span class="line">	q_file_name = <span class="string">"combq.bin"</span>,</span><br><span class="line">	scalar_function_number = <span class="number">100</span>,</span><br><span class="line">	vector_function_number = <span class="number">200</span></span><br><span class="line">	)<span class="comment">#读入plot3D数据</span></span><br><span class="line">plot3d.update()</span><br><span class="line">grid = plot3d.output.get_block(<span class="number">0</span>)<span class="comment">#获取读入数据对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#计算表示外边框的PolyData对象</span></span><br><span class="line">outline = tvtk.StructuredGridOutlineFilter()</span><br><span class="line"></span><br><span class="line"><span class="comment">#调用tvtk.common.configure_input()</span></span><br><span class="line">configure_input(outline,grid)</span><br><span class="line"></span><br><span class="line">m = tvtk.PolyDataMapper(input_connection = outline.output_port)</span><br><span class="line">a = tvtk.Actor(mapper = m)</span><br><span class="line">a.property.color = <span class="number">0.3</span>,<span class="number">0.3</span>,<span class="number">0.3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#窗口绘制</span></span><br><span class="line">win = ivtk_scene(a)</span><br><span class="line">win.scene.isometric_view()</span><br><span class="line">event_loop()</span><br></pre></td></tr></table></figure>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>在前面讲过为了让代码的可读性更高，将一些代码用函数进行了封装。其中的<code>ivtk_scene</code>、<code>event_loop</code>就是两个函数（之前见过，这里在提一下。。。），这两个函数位于<code>tvtkfunc</code>文件中（自己写的）。</p>
+<pre><code>from tvtkfunc import ivtk_scene,event_loop
+</code></pre><p>具体结构如下：创建一个py文件，并将其命名为<code>tvtkfunc</code>，其中包含两个函数：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ivtk_scene</span><span class="params">(actors)</span>:</span></span><br><span class="line">    <span class="keyword">from</span> tvtk.tools <span class="keyword">import</span> ivtk</span><br><span class="line">    <span class="comment">#创建一个带Curst(Python Shell)的窗口</span></span><br><span class="line">    win = ivtk.IVTKWithCrustAndBrowser()</span><br><span class="line">    win.open()</span><br><span class="line">    win.scene.add_actor(actors)</span><br><span class="line">    <span class="comment">#修正错误</span></span><br><span class="line">    dialog = win.control.centralWidget().widget(<span class="number">0</span>).widget(<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">from</span> pyface.qt <span class="keyword">import</span> QtCore</span><br><span class="line">    dialog.setWindowFlags(QtCore.Qt.WindowFlags(<span class="number">0x00000000</span>))</span><br><span class="line">    dialog.show()</span><br><span class="line">    <span class="keyword">return</span> win</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">event_loop</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">from</span> pyface.api <span class="keyword">import</span> GUI</span><br><span class="line">    gui = GUI()</span><br><span class="line">    gui.start_event_loop()</span><br></pre></td></tr></table></figure></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>TVTK的学习到这里告一段落了，以后的话还要继续深入。。。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/科学计算可视化/" rel="tag"><i class="fa fa-tag"></i> 科学计算可视化</a>
+          
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/16/TVTK数据加载/" rel="next" title="TVTK数据加载">
+                <i class="fa fa-chevron-left"></i> TVTK数据加载
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/touxiang.png"
+                alt="Pizisuan" />
+            
+              <p class="site-author-name" itemprop="name">Pizisuan</p>
+              <p class="site-description motion-element" itemprop="description">霖</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/pizisuan" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github-square"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐网站
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://sspai.com/" title="少数派" target="_blank">少数派</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/" title="哔哩哔哩" target="_blank">哔哩哔哩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.nowcoder.com/" title="牛客网" target="_blank">牛客网</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+          <div>
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=155847&auto=1&height=32"></iframe>
+          </div>
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#实例1：标量数据可视化"><span class="nav-number">1.</span> <span class="nav-text">实例1：标量数据可视化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例2：矢量数据可视化"><span class="nav-number">2.</span> <span class="nav-text">实例2：矢量数据可视化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例3：空间轮廓线可视化"><span class="nav-number">3.</span> <span class="nav-text">实例3：空间轮廓线可视化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#说明"><span class="nav-number">4.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Pizisuan</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">7.9k</span>
+  
+</div>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
