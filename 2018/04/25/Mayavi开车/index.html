@@ -86,21 +86,20 @@
 
 
 
-<meta name="description" content="近几年，人工智能发展迅猛：阿法狗、特斯拉、机器人…毫无疑问，人工智能将是今后IT界的发展方向。自己也打算开始学习这方面的技术，原因如下：  有趣 有钱 有范">
+<meta name="description" content="虽然VTK三维可视化软件功能很强大，Python的TVTK库包装方便简洁，但是要用这些工具快速编写一些实用的三维可视化程序，仍然需要花费不少的精力。因此，人们基于VTK开发的许多可视化的软件，其中就有Mayavi。因此，接下来学习Mayavi库的相关知识。。。（惊不惊喜？意不意外？哈哈哈！！！）">
 <meta name="keywords" content="科学计算可视化,Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TVTK显示三维对象">
-<meta property="og:url" content="http://yoursite.com/2018/04/08/TVTK显示三维对象/index.html">
+<meta property="og:title" content="Mayavi开车">
+<meta property="og:url" content="http://yoursite.com/2018/04/25/Mayavi开车/index.html">
 <meta property="og:site_name" content="Pizisuan">
-<meta property="og:description" content="近几年，人工智能发展迅猛：阿法狗、特斯拉、机器人…毫无疑问，人工智能将是今后IT界的发展方向。自己也打算开始学习这方面的技术，原因如下：  有趣 有钱 有范">
+<meta property="og:description" content="虽然VTK三维可视化软件功能很强大，Python的TVTK库包装方便简洁，但是要用这些工具快速编写一些实用的三维可视化程序，仍然需要花费不少的精力。因此，人们基于VTK开发的许多可视化的软件，其中就有Mayavi。因此，接下来学习Mayavi库的相关知识。。。（惊不惊喜？意不意外？哈哈哈！！！）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/img/2017编程语言排名.jpg">
-<meta property="og:image" content="http://yoursite.com/img/cube2.jpg">
-<meta property="og:updated_time" content="2018-04-10T03:40:31.047Z">
+<meta property="og:image" content="http://yoursite.com/img/Mayavi.jpg">
+<meta property="og:updated_time" content="2018-04-25T02:47:44.533Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TVTK显示三维对象">
-<meta name="twitter:description" content="近几年，人工智能发展迅猛：阿法狗、特斯拉、机器人…毫无疑问，人工智能将是今后IT界的发展方向。自己也打算开始学习这方面的技术，原因如下：  有趣 有钱 有范">
-<meta name="twitter:image" content="http://yoursite.com/img/2017编程语言排名.jpg">
+<meta name="twitter:title" content="Mayavi开车">
+<meta name="twitter:description" content="虽然VTK三维可视化软件功能很强大，Python的TVTK库包装方便简洁，但是要用这些工具快速编写一些实用的三维可视化程序，仍然需要花费不少的精力。因此，人们基于VTK开发的许多可视化的软件，其中就有Mayavi。因此，接下来学习Mayavi库的相关知识。。。（惊不惊喜？意不意外？哈哈哈！！！）">
+<meta name="twitter:image" content="http://yoursite.com/img/Mayavi.jpg">
 
 
 
@@ -130,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/08/TVTK显示三维对象/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/25/Mayavi开车/"/>
 
 
 
 
 
-  <title>TVTK显示三维对象 | Pizisuan</title>
+  <title>Mayavi开车 | Pizisuan</title>
   
 
 
@@ -265,7 +264,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/08/TVTK显示三维对象/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/25/Mayavi开车/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pizisuan">
@@ -282,7 +281,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">TVTK显示三维对象</h1>
+          <h1 class="post-title" itemprop="name headline">Mayavi开车</h1>
         
 
         <div class="post-meta">
@@ -294,8 +293,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-08T11:49:27+08:00">
-                2018-04-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-25T10:45:20+08:00">
+                2018-04-25
               </time>
             
 
@@ -310,8 +309,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-04-10T11:40:31+08:00">
-                2018-04-10
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-25T10:47:44+08:00">
+                2018-04-25
               </time>
             
           </span>
@@ -360,7 +359,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,395字
+                  278字
                 </span>
               
 
@@ -376,7 +375,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5分钟
+                  1分钟
                 </span>
               
             </div>
@@ -397,61 +396,17 @@
       
 
       
-        <p>近几年，人工智能发展迅猛：阿法狗、特斯拉、机器人…毫无疑问，人工智能将是今后IT界的发展方向。自己也打算开始学习这方面的技术，原因如下：</p>
+        <p>虽然VTK三维可视化软件功能很强大，Python的TVTK库包装方便简洁，但是要用这些工具快速编写一些实用的三维可视化程序，仍然需要花费不少的精力。因此，人们基于VTK开发的许多可视化的软件，其中就有Mayavi。因此，接下来学习<strong>Mayavi库</strong>的相关知识。。。（惊不惊喜？意不意外？哈哈哈！！！）<br><a id="more"></a></p>
+<h3 id="Mayavi库介绍"><a href="#Mayavi库介绍" class="headerlink" title="Mayavi库介绍"></a>Mayavi库介绍</h3><p>Mayavi完全用Python编写，因此它不但是一个实用的三维可视化软件，而且能够方便地使用Python语言编写扩展并嵌入到用户编写的Python程序中，或者可以直接使用面向脚本的API— MLAB，用来快速绘制三维图像。其官方文档见<a href="http://docs.enthought.com/mayavi/mayavi/index.html" target="_blank" rel="noopener">这里</a>。</p>
+<p><img src="\img\Mayavi.jpg" alt=""></p>
+<h3 id="Mayavi库的安装"><a href="#Mayavi库的安装" class="headerlink" title="Mayavi库的安装"></a>Mayavi库的安装</h3><p>基本要求如下(电脑需要有以下这些库的支持)：</p>
 <ul>
-<li>有趣</li>
-<li>有钱</li>
-<li>有范</li>
+<li>VTK</li>
+<li>numpy</li>
+<li>Traits</li>
 </ul>
-<a id="more"></a>
-<p>前段时间看到新闻说：<strong>小学生</strong> 都开始学编程了（压力山大有木有！！！）。劳资大学才接触编程，感觉要炸了！</p>
-<p>说到IT，就不得不提编程了，而讲到编程就又回到了程序猿的老话题了——“选何种计算机程序设计语言？”。现在，全世界差不多有600多种编程语言，但流行的编程语言也就那么20来种。如果你听说过<a href="https://www.tiobe.com/tiobe-index//" target="_blank" rel="noopener">TIOBE排行榜</a>，你就能知道编程语言的大致流行程度。对此，我自己的选择是：<strong>Python</strong><br><blockquote class="blockquote-center"><p><strong>Life is short, you need Python !</strong> </p>
-</blockquote><br>这里就不详细讲Python怎么怎么滴了，每个人的喜好不同，需求不同。我主要讲以下几点：</p>
-<ol>
-<li>Python这几年越来越受到欢迎（因为人工智能），各大科技公司招人。</li>
-<li>Python能干很多事情（开发网站、爬虫、科学计算、游戏开发…）。</li>
-<li>Python语法简单，易上手。</li>
-</ol>
-<p>前段时间，2017年编程语言排行榜出炉啦！！！根据IEEE Spectrum发布的研究报告显示：在2016年排名第三的Python在2017年已经成为世界上最受欢迎的语言，C和Java分别位居第二位和第三位。目前Python语言不仅进入小学教材，还将被纳入高考及全国计算机等级考试。</p>
-<p><img src="\img\2017编程语言排名.jpg" alt=""></p>
-<hr>
-<p>作为真正意义上的第一篇技术博客，结合上面所述，我主要讲述<strong>利用Python进行科学计算三维可视化</strong>。讲这个的原因是最近在学，如果你要问我为什么学，我的回答是：某一时刻看到了这个、觉得又有点意思、心情又有那么一点激动。所以咯，不要怂，Just干，学技术永远不嫌多！！！</p>
-<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>既然要讲科学计算三维可视化，首先需要明白什么是可视化。“可视化”的定义如下：</p>
-<blockquote>
-<p>可视化（Visualization）是利用计算机图形学和图像处理技术将数据转换成图形或图像在屏幕上显示出来，并进行交互处理的理论、方法和技术。</p>
-</blockquote>
-<p>事实上，将任何抽象的事务、过程变成图形、图像就可以表示为可视化。与计算机有关的可视化如：</p>
-<ul>
-<li>可视化界面（图形界面）如：Windows</li>
-<li>可视化编程 如：Visual C++</li>
-</ul>
-<p>说白了，可视化的中心思想就是：<strong>Visualization is the sight of Data！</strong></p>
-<p>“<strong>科学计算可视化</strong>”最早由美国国家科学基金会（NSF）于1987年2月提出，并在各大领域都有广泛的应用，其含义是：将数值计算、工程测量、卫星等获取到的科学数据转化为图形、图像并直观地表达出来。主要分为两类：</p>
-<ol>
-<li>信息可视化：对非空间、非数值的高维信息进行可视化（如：信息、知识）</li>
-<li><strong>科学可视化：对空间数据进行可视化</strong>（博客主要介绍这个）</li>
-</ol>
-<p>科学计算可视化的应用领域众多：地球科学、大气科学、医学/生命科学、生物/分子科学、航空/航天/工业、化学/化工、物理/力学、人类/考古学、地质勘探等。</p>
-<h3 id="科学计算可视化方法"><a href="#科学计算可视化方法" class="headerlink" title="科学计算可视化方法"></a>科学计算可视化方法</h3><p>科学计算可视化的主要方法主要包括：</p>
-<ol>
-<li>二维标量数据场：颜色映射法、等值线法、立体图法、层次分割法</li>
-<li>三维标量数据场：面绘制法、体绘制法</li>
-<li>矢量数据场：直接法（箭头、线段、色轮等）、流线法（流场）</li>
-</ol>
-<hr>
-<p>上面主要介绍的是科学计算可视化的一些相关概念，下面直接进入实战：利用Python进行科学计算可视化。</p>
-<h3 id="Python科学计算三维可视化"><a href="#Python科学计算三维可视化" class="headerlink" title="Python科学计算三维可视化"></a>Python科学计算三维可视化</h3><p>在利用Python进行科学计算三维可视化的过程中，主要需要用到以下一些第三方库，其名称及功能如下：</p>
-<ul>
-<li>TVTK：科学计算三维可视化基础、流水线模型及数据加载</li>
-<li>Mayavi：三维网格面绘制、三维标量场和矢量场绘制</li>
-<li>TraitsUI：交互式三维可视化应用</li>
-<li>SciPy：拟合、线性代数、统计、插值等</li>
-</ul>
-<p>自己也是刚接触这一块的技术，昨天刚刚配置好相关环境（遇到一些麻烦），之后用TVTK绘制了一个长方体（算是测试一下有木有配置成功吧），过程较为顺利。当看到一个长方体绘制结果后，心里还是蛮激动的（小小地嘚瑟一波，嘻嘻！！）</p>
-<p>代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tvtk.api <span class="keyword">import</span> tvtk</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个长方体数据源，并且同时设置其长宽高</span></span><br><span class="line">s = tvtk.CubeSource(x_length=<span class="number">1.0</span>, y_length=<span class="number">2.0</span>, z_length=<span class="number">3.0</span>)</span><br><span class="line"><span class="comment"># 使用PolyDataMapper将数据转换为图形数据</span></span><br><span class="line">m = tvtk.PolyDataMapper(input_connection=s.output_port)</span><br><span class="line"><span class="comment"># 创建一个Actor</span></span><br><span class="line">a = tvtk.Actor(mapper=m)</span><br><span class="line"><span class="comment"># 创建一个Renderer，将Actor添加进去</span></span><br><span class="line">r = tvtk.Renderer(background=(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>))</span><br><span class="line">r.add_actor(a)</span><br><span class="line"><span class="comment"># 创建一个RenderWindow(窗口)，将Renderer添加进去</span></span><br><span class="line">w = tvtk.RenderWindow(size=(<span class="number">300</span>,<span class="number">300</span>))</span><br><span class="line">w.add_renderer(r)</span><br><span class="line"><span class="comment"># 创建一个RenderWindowInteractor（窗口的交互工具)</span></span><br><span class="line">i = tvtk.RenderWindowInteractor(render_window=w)</span><br><span class="line"><span class="comment"># 开启交互</span></span><br><span class="line">i.initialize()</span><br><span class="line">i.start()</span><br></pre></td></tr></table></figure></p>
-<p>运行后结果如图所示：</p>
-<p><img src="\img\cube2.jpg" alt=""></p>
-<p>刚刚起步，仍需努力，加油！！！最后说一句：未完待续！</p>
+<p>之后下载安装文件，自己安装即可。（具体安装步骤，请左转百度！）</p>
+<h3 id="后续安排"><a href="#后续安排" class="headerlink" title="后续安排"></a>后续安排</h3><p>这篇博客是作为<strong>Mayavi库</strong>的开始，后面会跟进。（何时才能成为大神啊！！！）</p>
 
       
     </div>
@@ -484,8 +439,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/06/情诗一首/" rel="next" title="情诗一首">
-                <i class="fa fa-chevron-left"></i> 情诗一首
+              <a href="/2018/04/22/TVTK学习总结/" rel="next" title="TVTK学习总结">
+                <i class="fa fa-chevron-left"></i> TVTK学习总结
               </a>
             
           </div>
@@ -493,10 +448,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/10/TVTK中的管线技术/" rel="prev" title="TVTK中的管线技术">
-                TVTK中的管线技术 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -668,7 +619,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#科学计算可视化方法"><span class="nav-number">2.</span> <span class="nav-text">科学计算可视化方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python科学计算三维可视化"><span class="nav-number">3.</span> <span class="nav-text">Python科学计算三维可视化</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mayavi库介绍"><span class="nav-number">1.</span> <span class="nav-text">Mayavi库介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mayavi库的安装"><span class="nav-number">2.</span> <span class="nav-text">Mayavi库的安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后续安排"><span class="nav-number">3.</span> <span class="nav-text">后续安排</span></a></li></ol></div>
             
 
           </div>
