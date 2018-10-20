@@ -97,7 +97,7 @@
 <meta property="og:image" content="http://yoursite.com/img/TVTK模型读取.jpg">
 <meta property="og:image" content="http://yoursite.com/img/stl_reader.jpg">
 <meta property="og:image" content="http://yoursite.com/img/MultiBlock数据读取.jpg">
-<meta property="og:updated_time" content="2018-04-16T14:06:50.079Z">
+<meta property="og:updated_time" content="2018-10-20T07:29:10.883Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TVTK数据加载">
 <meta name="twitter:description" content="大多数可视化数据并非是在TVTK中构建的，很多都是通过接口读取外部数据文件，这里给出两个实例来讲解TVTK数据的加载。如图所示：TVTK提供了OBJ、PLY、STL的文件读取类，分别是：vtkOBJReader、vtkPLYReader以及vtkSTLReader。">
@@ -311,8 +311,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-04-16T22:06:50+08:00">
-                2018-04-16
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-20T15:29:10+08:00">
+                2018-10-20
               </time>
             
           </span>
@@ -411,7 +411,7 @@
 参数依次为：XYZ文件名、Q文件名、标量数据的数量、矢量数据的数量
 </code></pre><p><img src="\img\MultiBlock数据读取.jpg" alt=""></p>
 <p>整个实例程序如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tvtk.api <span class="keyword">import</span> tvtk</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_data</span><span class="params">()</span>:</span></span><br><span class="line">	plot3d = tvtk.MultiBlockPLOT3DReader(</span><br><span class="line">		xyz_file_name = <span class="string">"combxyz.bin"</span>,<span class="comment">#网格文件</span></span><br><span class="line">		q_file_name = <span class="string">"combq.bin"</span>,<span class="comment">#空气动力学结果文件</span></span><br><span class="line">		scalar_function_number = <span class="number">100</span>,<span class="comment">#设置标量数据数量</span></span><br><span class="line">		vector_function_number = <span class="number">200</span><span class="comment">#设置矢量数据数量</span></span><br><span class="line">		)</span><br><span class="line">	plot3d.update()</span><br><span class="line">	<span class="keyword">return</span> plot3d</span><br><span class="line"></span><br><span class="line">plot3d = read_data()</span><br><span class="line">grid = plot3d.output.get_block(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tvtk.api <span class="keyword">import</span> tvtk</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_data</span><span class="params">()</span>:</span></span><br><span class="line">    plot3d = tvtk.MultiBlockPLOT3DReader(</span><br><span class="line">        xyz_file_name = <span class="string">"combxyz.bin"</span>,<span class="comment">#网格文件</span></span><br><span class="line">        q_file_name = <span class="string">"combq.bin"</span>,<span class="comment">#空气动力学结果文件</span></span><br><span class="line">        scalar_function_number = <span class="number">100</span>,<span class="comment">#设置标量数据数量</span></span><br><span class="line">        vector_function_number = <span class="number">200</span><span class="comment">#设置矢量数据数量</span></span><br><span class="line">        )</span><br><span class="line">    plot3d.update()</span><br><span class="line">    <span class="keyword">return</span> plot3d</span><br><span class="line"></span><br><span class="line">plot3d = read_data()</span><br><span class="line">grid = plot3d.output.get_block(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本篇博客主要介绍了如何利用TVTK库的数据加载。。。江湖再见！！！</p>
 
       
@@ -540,7 +540,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -562,7 +562,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -664,7 +664,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">23.6k</span>
+    <span title="Site words total count">24.0k</span>
   
 </div>
 <div class="powered-by">
